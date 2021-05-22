@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#201e1e"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/settingsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/baloo"
+            android:gravity="center"
+            android:text="Settings"
+            android:textColor="#FFD900"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/difficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_question_box"
+            android:fontFamily="@font/baloo"
+            android:padding="16dp"
+            android:text="Set Difficulty"
+            android:textColor="#FFD900"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/optionButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:checked="true"
+                android:fontFamily="@font/baloo"
+                android:text="Easy  (60 seconds)"
+                android:textColor="#FFD900"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/optionButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/baloo"
+                android:text="Moderate  (45 seconds)"
+                android:textColor="#FFD900"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/optionButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/baloo"
+                android:text="Expert  (30 seconds)"
+                android:textColor="#FFD900"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/setMusicControllerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_question_box"
+            android:fontFamily="@font/baloo"
+            android:padding="16dp"
+            android:text="Music"
+            android:textColor="#FFD900"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/controllerButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:checked="true"
+                android:fontFamily="@font/baloo"
+                android:onClick="musicController"
+                android:text="ON"
+                android:textColor="#FFD900"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/controllerButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/baloo"
+                android:onClick="musicController"
+                android:text="OFF"
+                android:textColor="#FFD900"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/saveTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/baloo"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Save Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cancelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_button2"
+            android:fontFamily="@font/baloo"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Cancel"
+            android:textColor="#FF0000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

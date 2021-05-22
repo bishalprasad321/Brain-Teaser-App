@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#201E1E"
+    tools:context=".GameInterface">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/restartIcon"
+            android:layout_width="52dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="45dp"
+            android:onClick="restartAction"
+            app:srcCompat="@drawable/restarticon" />
+
+        <TextView
+            android:id="@+id/restartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_weight="0"
+            android:fontFamily="@font/baloo"
+            android:gravity="center|left"
+            android:onClick="restartAction"
+            android:text="Restart"
+            android:textColor="#FFD900"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/brainBulb"
+            android:layout_width="52dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/brainbulblogo" />
+
+        <ImageView
+            android:id="@+id/timerClock"
+            android:layout_width="52dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="45dp"
+            app:srcCompat="@drawable/clocklogo" />
+
+        <TextView
+            android:id="@+id/clockTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_weight="0"
+            android:gravity="center|right"
+            android:fontFamily="@font/baloo"
+            android:text="60s"
+            android:textColor="#FFD900"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:orientation="horizontal"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_views"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="0 of 0"
+            android:textColor="#201e1e"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_views2"
+            android:gravity="center"
+            android:text="01:00"
+            android:textColor="#201e1e"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/questionBox"
+        android:layout_width="314dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/rounded_question_box"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#FFD900"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="145dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/homeView"
+            android:layout_width="66dp"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:onClick="homeAlert"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:srcCompat="@drawable/homelogo" />
+
+        <ImageView
+            android:id="@+id/health1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:padding="14dp"
+            android:alpha="1"
+            android:layout_weight="0"
+            android:onClick="infoApp"
+            app:srcCompat="@drawable/health" />
+
+        <ImageView
+            android:id="@+id/health2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:padding="14dp"
+            android:alpha="1"
+            android:layout_weight="0"
+            android:onClick="infoApp"
+            app:srcCompat="@drawable/health" />
+
+        <ImageView
+            android:id="@+id/health3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_weight="0"
+            android:alpha="1"
+            android:padding="14dp"
+            android:onClick="infoApp"
+            app:srcCompat="@drawable/health" />
+
+        <ImageView
+            android:id="@+id/bulbHint"
+            android:layout_width="66dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:onClick="infoApp"
+            app:srcCompat="@drawable/bulbglow" />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/button_option"
+        android:fontFamily="@font/baloo"
+        android:onClick="chooseAnswer"
+        android:tag="0"
+        android:text="Button"
+        android:textColor="#201E1E"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionBox" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/button_option"
+        android:fontFamily="@font/baloo"
+        android:onClick="chooseAnswer"
+        android:tag="1"
+        android:text="Button"
+        android:textColor="#201E1E"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/questionBox" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/button_option"
+        android:fontFamily="@font/baloo"
+        android:onClick="chooseAnswer"
+        android:tag="2"
+        android:text="Button"
+        android:textColor="#201E1E"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/button_option"
+        android:fontFamily="@font/baloo"
+        android:onClick="chooseAnswer"
+        android:tag="3"
+        android:text="Button"
+        android:textColor="#201E1E"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:fontFamily="@font/baloo"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/baloo"
+        android:text=""
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FFD900"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/playAgain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="64dp"
+        android:background="@drawable/round_play_again"
+        android:fontFamily="@font/baloo"
+        android:onClick="playAgain"
+        android:text="Play Again"
+        android:textSize="28sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

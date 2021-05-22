@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#201E1E"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logoView"
+        android:layout_width="284dp"
+        android:layout_height="397dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/brainTeaser"
+        android:layout_width="310dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/butcherman"
+        android:gravity="center"
+        android:onClick="openerLogo"
+        android:text="BRAIN TEASER"
+        android:textAllCaps="false"
+        android:textColor="#FFD900"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brainTeaser">
+
+        <Button
+            android:id="@+id/playGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:alpha="0"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/baloo"
+            android:gravity="center"
+            android:text="P L A Y"
+            android:textAllCaps="false"
+            android:textColor="#8BC34A"
+            android:textSize="42sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/quitTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="32dp"
+            android:alpha="0"
+            android:background="@drawable/round_button2"
+            android:fontFamily="@font/baloo"
+            android:gravity="center"
+            android:text="E X I T"
+            android:textColor="#F44336"
+            android:textSize="42sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/openTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="316dp"
+        android:gravity="center"
+        android:onClick="openerLogo"
+        android:text="....Click To Play...."
+        android:textColor="#FFD900"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/quoteView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FFD900"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/infoView"
+        android:layout_width="64dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0"
+        android:onClick="infoApp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bulbglow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
