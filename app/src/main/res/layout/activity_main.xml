@@ -23,8 +23,8 @@
 
     <TextView
         android:id="@+id/brainTeaser"
-        android:layout_width="310dp"
-        android:layout_height="92dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
@@ -33,7 +33,6 @@
         android:gravity="center"
         android:onClick="openerLogo"
         android:text="BRAIN TEASER"
-        android:textAllCaps="false"
         android:textColor="#FFD900"
         android:textSize="50sp"
         android:textStyle="bold"

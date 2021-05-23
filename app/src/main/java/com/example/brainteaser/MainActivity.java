@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             openTextView.animate().alpha(0).setDuration(300);
-            brainTeaser.animate().translationYBy(800).setDuration(2000);
+            brainTeaser.animate().translationYBy(750).setDuration(2000);
             logoView.animate().rotation(360).setDuration(2000);
             logoView.animate().alpha(1).setDuration(2000);
             quitTextView.animate().alpha(1).setDuration(2000);
