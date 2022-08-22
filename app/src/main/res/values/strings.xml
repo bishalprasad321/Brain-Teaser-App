@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Brain Teaser</string>
+    <string name="logo_icon">logo view</string>
+    <string name="restart_icon">restart icon</string>
 </resources>

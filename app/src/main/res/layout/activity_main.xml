@@ -19,7 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.194"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/logo_icon" />
 
     <TextView
         android:id="@+id/brainTeaser"
@@ -91,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="316dp"
         android:gravity="center"
+        android:minHeight="48dp"
         android:onClick="openerLogo"
         android:text="....Click To Play...."
         android:textColor="#FFD900"
