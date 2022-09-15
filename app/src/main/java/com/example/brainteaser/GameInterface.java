@@ -1,35 +1,20 @@
 package com.example.brainteaser;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.transition.MaterialSharedAxis;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GameInterface extends AppCompatActivity{
@@ -228,8 +213,8 @@ public class GameInterface extends AppCompatActivity{
 
         AlertDialog.Builder infoDialog = new AlertDialog.Builder(this);
         infoDialog.setIcon(android.R.drawable.ic_dialog_info);
-        infoDialog.setTitle("Brain Teaser v1.0");
-        infoDialog.setMessage("Contact with the App Developer\n regarding bugs!!\n \n~Developer : Bishal Prasad\nContact : bishalprasad321@gmail.com");
+        infoDialog.setTitle(R.string.game_version);
+        infoDialog.setMessage(R.string.info_message);
         infoDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // You don't have to do anything here if you just
@@ -261,43 +246,40 @@ public class GameInterface extends AppCompatActivity{
         Random rand = new Random();
         int quoteOfTheDay = rand.nextInt(20);
 
-        quotes.add("Some are born strong and others are made strong");
-        quotes.add("When u practice something with conscious mind n then continue practicing the same even with sub-conscious mind, You Master it");
-        quotes.add("The brain is like a muscle; books are the diet and writing is the workout");
-        quotes.add("You miss 100% of the shots you don't take");
-        quotes.add("Whether you think you can or you think you can't, you're right");
-        quotes.add("Nothing is impossible, the word itself says, ‘I'm possible!'");
-        quotes.add("The question isn't who is going to let me; it's who is going to stop me");
-        quotes.add("The only person you are destined to become is the person you decide to be");
-        quotes.add("Believe you can and you're halfway there");
-        quotes.add("The question isn't who is going to let me; it's who is going to stop me");
-        quotes.add("Winning isn't everything, but wanting to win is");
-        quotes.add("You become what you believe");
-        quotes.add("The most difficult thing is the decision to act, the rest is merely tenacity");
-        quotes.add("Everything you've ever wanted is on the other side of fear");
-        quotes.add("Dream big and dare to fail");
-        quotes.add("You may be disappointed if you fail, but you are doomed if you don't try");
-        quotes.add("Life is 10% what happens to me and 90% of how I react to it");
-        quotes.add("It does not matter how slowly you go as long as you do not stop");
-        quotes.add("Too many of us are not living our dreams because we are living our fears");
-        quotes.add("I didn't fail the test. I just found 100 ways to do it wrong");
+        quotes.add(getString(R.string.quote_01));
+        quotes.add(getString(R.string.quote_02));
+        quotes.add(getString(R.string.qoute_03));
+        quotes.add(getString(R.string.quote_04));
+        quotes.add(getString(R.string.quote_05));
+        quotes.add(getString(R.string.qoute_06));
+        quotes.add(getString(R.string.qoute_07));
+        quotes.add(getString(R.string.qoute_08));
+        quotes.add(getString(R.string.qoute_09));
+        quotes.add(getString(R.string.qoute_10));
+        quotes.add(getString(R.string.qoute_11));
+        quotes.add(getString(R.string.qoute_12));
+        quotes.add(getString(R.string.quote_13));
+        quotes.add(getString(R.string.qoute_14));
+        quotes.add(getString(R.string.qoute_15));
+        quotes.add(getString(R.string.quote_16));
+        quotes.add(getString(R.string.quote_17));
+        quotes.add(getString(R.string.quote_18));
+        quotes.add(getString(R.string.quote_19));
+        quotes.add(getString(R.string.quote_20));
 
         String quote = quotes.get(quoteOfTheDay);
         brainIcon = (ImageView) findViewById(R.id.brainBulb);
-        brainIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder todayQuote = new AlertDialog.Builder(GameInterface.this);
-                todayQuote.setIcon(android.R.drawable.star_on);
-                todayQuote.setTitle("Quote of the Day");
-                todayQuote.setMessage("\""+quote+"\""+"\n\n-Developer : Bishal Prasad");
-                todayQuote.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // You don't have to do anything here if you just
-                        // want it dismissed when clicked
-                    }
-                }).show();
-            }
+        brainIcon.setOnClickListener(v -> {
+            AlertDialog.Builder todayQuote = new AlertDialog.Builder(GameInterface.this);
+            todayQuote.setIcon(android.R.drawable.star_on);
+            todayQuote.setTitle("Quote of the Day");
+            todayQuote.setMessage("\""+quote+"\""+"\n\n-Developer : Bishal Prasad");
+            todayQuote.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // You don't have to do anything here if you just
+                    // want it dismissed when clicked
+                }
+            }).show();
         });
 
         timeIcon = (ImageView) findViewById(R.id.timerClock);
@@ -343,8 +325,6 @@ public class GameInterface extends AppCompatActivity{
                 mPlayer.stop();
                 gameOverMusic.start();
                 flag = 1;
-                //health = 2;
-                //setMessageView();
                 messageView.setVisibility(View.VISIBLE);
                 if (score>=20 && score<30){
                     messageView.setText("Need Improvement, try to reach above 30");
@@ -358,35 +338,6 @@ public class GameInterface extends AppCompatActivity{
                 else{
                     messageView.setText("You need to see your maths teacher");
                 }
-
-//                switch(health){
-//                    case 3:
-//                        resultTextView.setText("!!GAME OVER!!");
-//                        scoreView.setVisibility(View.VISIBLE);
-//                        scoreView.setText("Your Score : " + Integer.toString(score));
-//                        playAgain.setVisibility(View.VISIBLE);
-//                        messageView.setVisibility(View.VISIBLE);
-//                        health3.animate().alpha(0).setDuration(5000);
-//                        break;
-//
-//                    case 2:
-//                        resultTextView.setText("!!GAME OVER!!");
-//                        scoreView.setVisibility(View.VISIBLE);
-//                        scoreView.setText("Your Score : " + Integer.toString(score));
-//                        playAgain.setVisibility(View.VISIBLE);
-//                        messageView.setVisibility(View.VISIBLE);
-//                        health2.animate().alpha(0).setDuration(5000);
-//                        break;
-//
-//                    case 1:
-//                        resultTextView.setText("!!GAME OVER!!");
-//                        scoreView.setVisibility(View.VISIBLE);
-//                        scoreView.setText("Your Score : " + Integer.toString(score));
-//                        playAgain.setVisibility(View.INVISIBLE);
-//                        messageView.setVisibility(View.VISIBLE);
-//                        health1.animate().alpha(0).setDuration(5000);
-//                        break;
-//                }
 
                 health = 2;
 
