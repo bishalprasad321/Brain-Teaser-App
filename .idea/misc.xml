@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bisha/AndroidStudioProjects/Brain-Teaser-App/app/src/main/res/drawable/button_option.xml" value="0.2555" />
         <entry key="..\:/Users/bisha/AndroidStudioProjects/Brain-Teaser-App/app/src/main/res/layout/activity_game_interface.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/bisha/AndroidStudioProjects/Brain-Teaser-App/app/src/main/res/layout/activity_main.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/bisha/AndroidStudioProjects/Brain-Teaser-App/app/src/main/res/layout/activity_settings.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/bisha/AndroidStudioProjects/Brain-Teaser-App/app/src/main/res/layout/dialog_layout.xml" value="0.20512820512820512" />
       </map>
     </option>

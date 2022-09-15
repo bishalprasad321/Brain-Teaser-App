@@ -8,19 +8,59 @@
     android:background="#201E1E"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/logoGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playButtonGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/exitButtonGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.77"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"/>
+
     <ImageView
         android:id="@+id/logoView"
-        android:layout_width="284dp"
-        android:layout_height="397dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194"
         app:srcCompat="@drawable/logo"
-        android:contentDescription="@string/logo_icon" />
+        android:contentDescription="@string/logo_icon"
+        app:layout_constraintLeft_toRightOf="@id/leftGuide"
+        app:layout_constraintRight_toLeftOf="@id/rightGuide"
+        app:layout_constraintTop_toBottomOf="@id/logoGuide"
+        app:layout_constraintBottom_toTopOf="@id/buttonGuide"/>
 
     <TextView
         android:id="@+id/brainTeaser"
@@ -33,7 +73,7 @@
         android:fontFamily="@font/butcherman"
         android:gravity="center"
         android:onClick="openerLogo"
-        android:text="BRAIN TEASER"
+        android:text="@string/brain_teaser"
         android:textColor="#FFD900"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -44,47 +84,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/brainTeaser">
+    <Button
+        android:id="@+id/playGame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:alpha="0"
+        android:background="@drawable/round_button"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="@string/play_button"
+        android:textAllCaps="false"
+        android:textColor="#8BC34A"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/leftGuide"
+        app:layout_constraintRight_toLeftOf="@id/rightGuide"
+        app:layout_constraintTop_toBottomOf="@id/buttonGuide"
+        app:layout_constraintBottom_toTopOf="@id/playButtonGuide"/>
 
-        <Button
-            android:id="@+id/playGame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:alpha="0"
-            android:background="@drawable/round_button"
-            android:fontFamily="@font/baloo"
-            android:gravity="center"
-            android:text="P L A Y"
-            android:textAllCaps="false"
-            android:textColor="#8BC34A"
-            android:textSize="42sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/quitTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="32dp"
-            android:alpha="0"
-            android:background="@drawable/round_button2"
-            android:fontFamily="@font/baloo"
-            android:gravity="center"
-            android:text="E X I T"
-            android:textColor="#F44336"
-            android:textSize="42sp" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/quitTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:layout_marginRight="32dp"
+        android:alpha="0"
+        android:background="@drawable/round_button2"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="@string/exit_button"
+        android:textColor="#F44336"
+        android:textSize="42sp"
+        app:layout_constraintLeft_toRightOf="@id/leftGuide"
+        app:layout_constraintRight_toLeftOf="@id/rightGuide"
+        app:layout_constraintTop_toBottomOf="@id/playButtonGuide"
+        app:layout_constraintBottom_toTopOf="@id/exitButtonGuide"/>
 
     <TextView
         android:id="@+id/openTextView"
@@ -94,7 +129,7 @@
         android:gravity="center"
         android:minHeight="48dp"
         android:onClick="openerLogo"
-        android:text="....Click To Play...."
+        android:text="@string/click_to_play"
         android:textColor="#FFD900"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -113,7 +148,6 @@
         android:layout_marginRight="32dp"
         android:fontFamily="@font/baloo"
         android:gravity="center"
-        android:text=""
         android:textColor="#FFD900"
         android:textSize="14sp"
         android:textStyle="italic"
@@ -124,15 +158,15 @@
 
     <ImageView
         android:id="@+id/infoView"
-        android:layout_width="64dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:alpha="0"
         android:onClick="infoApp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bulbglow" />
+        app:srcCompat="@drawable/bulbglow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logoGuide"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

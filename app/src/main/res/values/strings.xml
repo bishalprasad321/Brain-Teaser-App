@@ -24,4 +24,12 @@
     <string name="quote_18">It does not matter how slowly you go as long as you do not stop</string>
     <string name="quote_19">Too many of us are not living our dreams because we are living our fears</string>
     <string name="quote_20">I didn\'t fail the test. I just found 100 ways to do it wrong</string>
+    <string name="exit_button">E X I T</string>
+    <string name="play_button">P L A Y</string>
+    <string name="click_to_play">....Click To Play....</string>
+    <string name="brain_teaser">BRAIN TEASER</string>
+    <string name="text_view">TextView</string>
+    <string name="question_number">0 of 0</string>
+    <string name="time">01:00</string>
+    <string name="time_sec">60 sec</string>
 </resources>
