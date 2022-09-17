@@ -5,7 +5,7 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#201E1E"
+    android:background="@drawable/background_v2"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline

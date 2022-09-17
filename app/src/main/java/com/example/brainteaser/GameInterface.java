@@ -19,17 +19,17 @@ import java.util.Random;
 
 public class GameInterface extends AppCompatActivity{
 
-    ImageView home, brainIcon, health1, health2, health3;
-    ImageView infoApp, timeIcon;
-    int locationOfCorrectAnswer, milliSeconds=60300;
+    ImageView brainIcon, health1, health2, health3;
+    ImageView timeIcon, restartIcon;
+    int locationOfCorrectAnswer;
     Button option0, option1, option2, option3, playAgain;
-    ArrayList<Integer> answers = new ArrayList<Integer>();
+    ArrayList<Integer> answers = new ArrayList<>();
     TextView questionView, resultTextView, scoreTextView, timer, scoreView, messageView, timeText;
-    int score, flag=0, timeSetter=60300, health=3;
+    int score, flag = 0, health = 3;
     int numberOfQuestions = 0;
-    MediaPlayer mPlayer, gameOverMusic;
+    MediaPlayer mPlayer, gameOverMusic, clickButton;
 
-    ArrayList<String> quotes = new ArrayList<String>();
+    ArrayList<String> quotes = new ArrayList<>();
 
     public void updateTimer(int seconds){
 
@@ -41,7 +41,7 @@ public class GameInterface extends AppCompatActivity{
             secondsLeft = "0"+secondsLeft;
         }
 
-        if (minutes<=9){
+        if (minutes <= 9){
             minutesLeft = "0"+minutesLeft;
         }
         timer.setText(minutesLeft+":"+secondsLeft);
@@ -53,7 +53,7 @@ public class GameInterface extends AppCompatActivity{
             score = 0;
             flag = 0;
             numberOfQuestions = 0;
-            timer.setText("01:00");
+            timer.setText(R.string.time_text);
             scoreTextView.setText(Integer.toString(score) + " of " + Integer.toString(numberOfQuestions));
             newQuestion();
             playAgain.setVisibility(View.INVISIBLE);
@@ -84,7 +84,7 @@ public class GameInterface extends AppCompatActivity{
                     gameOverMusic.start();
                     flag = 1;
                     if (health == 2){
-                        resultTextView.setText("!!GAME OVER!!");
+                        resultTextView.setText(R.string.game_over_text);
                         scoreView.setVisibility(View.VISIBLE);
                         scoreView.setText("Your Score : " + Integer.toString(score));
                         playAgain.setVisibility(View.VISIBLE);
@@ -94,7 +94,7 @@ public class GameInterface extends AppCompatActivity{
                     }
 
                     else if (health == 1){
-                        resultTextView.setText("!!LIFE OVER!!, Restart Game");
+                        resultTextView.setText(R.string.life_over_text);
                         scoreView.setVisibility(View.VISIBLE);
                         scoreView.setText("Your Score : " + Integer.toString(score));
                         playAgain.setVisibility(View.INVISIBLE);
@@ -145,7 +145,10 @@ public class GameInterface extends AppCompatActivity{
 
     public void chooseAnswer(View view) {
 
-        if (flag==0) {
+        clickButton = MediaPlayer.create(this, R.raw.click);
+
+        if (flag == 0) {
+            clickButton.start();
             if (Integer.toString(locationOfCorrectAnswer).equals(view.getTag().toString())) {
                 resultTextView.setText("Correct!");
                 score++;
@@ -205,8 +208,7 @@ public class GameInterface extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 mPlayer.start();
             }
-        })
-                .show();
+        }).show();
     }
 
     public void infoApp(View view){
@@ -228,20 +230,28 @@ public class GameInterface extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_interface);
-        questionView = (TextView) findViewById(R.id.questionBox);
-        option0 = (Button) findViewById(R.id.button1);
-        option1 = (Button) findViewById(R.id.button2);
-        option2 = (Button) findViewById(R.id.button3);
-        option3 = (Button) findViewById(R.id.button4);
-        resultTextView = (TextView) findViewById(R.id.resultTextView);
-        scoreTextView = (TextView) findViewById(R.id.questionText);
-        playAgain = (Button) findViewById(R.id.playAgain);
-        timer = (TextView) findViewById(R.id.timeText);
-        scoreView = (TextView) findViewById(R.id.scoreTextView);
-        messageView = (TextView) findViewById(R.id.messageTextView);
-        health1 = (ImageView) findViewById(R.id.health1);
-        health2 = (ImageView) findViewById(R.id.health2);
-        health3 = (ImageView) findViewById(R.id.health3);
+        questionView = findViewById(R.id.questionBox);
+        option0 = findViewById(R.id.button1);
+        option1 = findViewById(R.id.button2);
+        option2 = findViewById(R.id.button3);
+        option3 = findViewById(R.id.button4);
+        resultTextView = findViewById(R.id.resultTextView);
+        scoreTextView = findViewById(R.id.questionText);
+        playAgain = findViewById(R.id.playAgain);
+        timer = findViewById(R.id.timeText);
+        scoreView = findViewById(R.id.scoreTextView);
+        messageView = findViewById(R.id.messageTextView);
+        health1 = findViewById(R.id.health1);
+        health2 = findViewById(R.id.health2);
+        health3 = findViewById(R.id.health3);
+        restartIcon = findViewById(R.id.restartIcon);
+
+        restartIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                restartAction(view);
+            }
+        });
 
         Random rand = new Random();
         int quoteOfTheDay = rand.nextInt(20);
@@ -317,7 +327,7 @@ public class GameInterface extends AppCompatActivity{
 
             @Override
             public void onFinish() {
-                resultTextView.setText("!!GAME OVER!!");
+                resultTextView.setText(R.string.game_over_text);
                 scoreView.setVisibility(View.VISIBLE);
                 scoreView.setText("Your Score : "+ Integer.toString(score));
                 playAgain.setVisibility(View.VISIBLE);
@@ -327,16 +337,16 @@ public class GameInterface extends AppCompatActivity{
                 flag = 1;
                 messageView.setVisibility(View.VISIBLE);
                 if (score>=20 && score<30){
-                    messageView.setText("Need Improvement, try to reach above 30");
+                    messageView.setText(R.string.score_review4);
                 }
                 else if(score>=30){
-                    messageView.setText("Woah!, you are becoming Genius");
+                    messageView.setText(R.string.score_review3);
                 }
-                else if(score<20 && score>=10){
-                    messageView.setText("Poor performance");
+                else if(score < 20 && score >= 10){
+                    messageView.setText(R.string.score_review2);
                 }
                 else{
-                    messageView.setText("You need to see your maths teacher");
+                    messageView.setText(R.string.score_review1);
                 }
 
                 health = 2;

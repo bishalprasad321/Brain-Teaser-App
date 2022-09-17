@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity{
     MediaPlayer music;
     int flag = 0;
 
-    ArrayList<String> quotes = new ArrayList<String>();
+    ArrayList<String> quotes = new ArrayList<>();
 
 
     public void infoApp(View view){

@@ -32,4 +32,11 @@
     <string name="question_number">0 of 0</string>
     <string name="time">01:00</string>
     <string name="time_sec">60 sec</string>
+    <string name="game_over_text">!!GAME OVER!!</string>
+    <string name="life_over_text">!!LIFE OVER!!, Restart Game</string>
+    <string name="time_text">01:00</string>
+    <string name="score_review2">Poor performance!!</string>
+    <string name="score_review1">You need to see your maths teacher</string>
+    <string name="score_review3">Woah!, you are becoming Genius</string>
+    <string name="score_review4">Need Improvement, try to reach above 30</string>
 </resources>
