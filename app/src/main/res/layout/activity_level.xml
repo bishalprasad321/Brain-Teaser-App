@@ -5,8 +5,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LevelActivity"
-    android:background="@color/background">
+    android:background="@drawable/background_splash_30">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/textGuideTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.15"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/textGuideBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.25"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/categoryGuide1Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.35"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/categoryGuide2Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.45"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/categoryGuide3Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.55"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/categoryGuide4Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.65"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/categoryGuide4Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.75"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/select_category"
+        android:textColor="@color/background"
+        android:fontFamily="@font/butcherman"
+        android:textSize="32sp"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@id/left"
+        app:layout_constraintRight_toLeftOf="@id/right"
+        app:layout_constraintTop_toBottomOf="@id/textGuideTop"
+        app:layout_constraintBottom_toTopOf="@id/textGuideBottom"/>
+
+    <Button
+        android:id="@+id/category_add"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="@string/add"
+        android:textSize="28sp"
+        android:textColor="@color/yellow"
+        android:layout_margin="16dp"
+        android:background="@drawable/category_background"
+        app:layout_constraintLeft_toRightOf="@id/left"
+        app:layout_constraintRight_toLeftOf="@id/right"
+        app:layout_constraintTop_toBottomOf="@id/categoryGuide1Top"
+        app:layout_constraintBottom_toTopOf="@id/categoryGuide2Top"/>
+
+    <Button
+        android:id="@+id/category_subtract"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="@string/subtract"
+        android:textSize="28sp"
+        android:textColor="@color/yellow"
+        android:layout_margin="16dp"
+        android:background="@drawable/category_background"
+        app:layout_constraintLeft_toRightOf="@id/left"
+        app:layout_constraintRight_toLeftOf="@id/right"
+        app:layout_constraintTop_toBottomOf="@id/categoryGuide2Top"
+        app:layout_constraintBottom_toTopOf="@id/categoryGuide3Top"/>
+
+    <Button
+        android:id="@+id/category_product"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="@string/product"
+        android:textSize="28sp"
+        android:textColor="@color/yellow"
+        android:layout_margin="16dp"
+        android:background="@drawable/category_background"
+        app:layout_constraintLeft_toRightOf="@id/left"
+        app:layout_constraintRight_toLeftOf="@id/right"
+        app:layout_constraintTop_toBottomOf="@id/categoryGuide3Top"
+        app:layout_constraintBottom_toTopOf="@id/categoryGuide4Top"/>
+
+    <Button
+        android:id="@+id/category_division"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:text="@string/divide"
+        android:textSize="28sp"
+        android:textColor="@color/yellow"
+        android:layout_margin="16dp"
+        android:background="@drawable/category_background"
+        app:layout_constraintLeft_toRightOf="@id/left"
+        app:layout_constraintRight_toLeftOf="@id/right"
+        app:layout_constraintTop_toBottomOf="@id/categoryGuide4Top"
+        app:layout_constraintBottom_toTopOf="@id/categoryGuide4Bottom"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

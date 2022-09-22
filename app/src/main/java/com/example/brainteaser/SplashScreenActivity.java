@@ -25,7 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         appName = findViewById(R.id.appName);
 
-        appName.animate().alpha(1f).setDuration(3000);
+        appName.animate().alpha(1f).setDuration(5000);
 
         Thread thread = new Thread(){
             public void run(){

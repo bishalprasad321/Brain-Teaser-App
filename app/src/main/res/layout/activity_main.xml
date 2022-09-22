@@ -5,7 +5,7 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_v2"
+    android:background="@drawable/background_30"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -14,6 +14,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/openerGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonGuide"
@@ -50,13 +57,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9"/>
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/logoView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="0"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="@string/logo_icon"
+        app:lottie_rawRes="@raw/app_splash_anim_yellow"
+        app:lottie_autoPlay="true"
+        app:lottie_repeatMode="reverse"
+        app:lottie_repeatCount="15"
         app:layout_constraintLeft_toRightOf="@id/leftGuide"
         app:layout_constraintRight_toLeftOf="@id/rightGuide"
         app:layout_constraintTop_toBottomOf="@id/logoGuide"
@@ -70,19 +78,18 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:alpha="0"
         android:fontFamily="@font/butcherman"
         android:gravity="center"
-        android:onClick="openerLogo"
         android:text="@string/brain_teaser"
         android:textColor="#FFD900"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/playGame"
@@ -90,12 +97,12 @@
         android:layout_height="0dp"
         android:layout_margin="8dp"
         android:alpha="0"
-        android:background="@drawable/round_button"
+        android:background="@drawable/button_option"
         android:fontFamily="@font/baloo"
         android:gravity="center"
         android:text="@string/play_button"
         android:textAllCaps="false"
-        android:textColor="#8BC34A"
+        android:textColor="@color/background"
         android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/leftGuide"
@@ -110,60 +117,47 @@
         android:layout_margin="8dp"
         android:layout_marginRight="32dp"
         android:alpha="0"
-        android:background="@drawable/round_button2"
+        android:background="@drawable/rounded_question_box"
         android:fontFamily="@font/baloo"
         android:gravity="center"
         android:text="@string/exit_button"
-        android:textColor="#F44336"
+        android:textColor="@color/yellow"
         android:textSize="42sp"
         app:layout_constraintLeft_toRightOf="@id/leftGuide"
         app:layout_constraintRight_toLeftOf="@id/rightGuide"
         app:layout_constraintTop_toBottomOf="@id/playButtonGuide"
-        app:layout_constraintBottom_toTopOf="@id/exitButtonGuide"/>
+        app:layout_constraintBottom_toTopOf="@id/exitButtonGuide"
+        android:layout_marginEnd="32dp" />
 
-    <TextView
-        android:id="@+id/openTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="316dp"
+
+    <Button
+        android:id="@+id/openButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_option"
         android:gravity="center"
-        android:minHeight="48dp"
-        android:onClick="openerLogo"
         android:text="@string/click_to_play"
-        android:textColor="#FFD900"
+        android:textColor="@color/background"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/buttonGuide"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/leftGuide"
+        app:layout_constraintRight_toLeftOf="@id/rightGuide"
+        app:layout_constraintTop_toBottomOf="@id/openerGuide"
+        app:layout_constraintVertical_bias="0.0" />
 
-
-    <TextView
-        android:id="@+id/quoteView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginRight="32dp"
-        android:fontFamily="@font/baloo"
-        android:gravity="center"
-        android:textColor="#FFD900"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/infoView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        android:alpha="0"
-        android:onClick="infoApp"
+        android:alpha="1"
         app:srcCompat="@drawable/bulbglow"
+        android:contentDescription="@string/info_icon"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/logoGuide"

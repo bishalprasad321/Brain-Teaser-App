@@ -12,20 +12,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Random;
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 
 public class MainActivity extends AppCompatActivity{
 
     TextView brainTeaser;
-    ImageView logoView, info;
+    ImageView info;
     Button playGame;
-    TextView openTextView, quoteView;
-    Button quitTextView;
+    LottieAnimationView logoView;
+    Button quitTextView, openButton;
     MediaPlayer music;
     int flag = 0;
-
-    ArrayList<String> quotes = new ArrayList<>();
 
 
     public void infoApp(View view){
@@ -45,15 +43,11 @@ public class MainActivity extends AppCompatActivity{
     public void openerLogo(View view) {
         if (flag == 0) {
 
-
-            openTextView.animate().alpha(0).setDuration(300);
+            openButton.animate().alpha(0f).setDuration(200);
+            brainTeaser.animate().alpha(1f).setDuration(2000);
             brainTeaser.animate().translationYBy(750).setDuration(2000);
-            logoView.animate().rotation(360).setDuration(2000);
-            logoView.animate().alpha(1).setDuration(2000);
             quitTextView.animate().alpha(1).setDuration(2000);
             playGame.animate().alpha(1).setDuration(2000);
-
-            info.animate().alpha(1).setDuration(2000);
 
             music = MediaPlayer.create(this, R.raw.gamestart);
             music.start();
@@ -68,11 +62,29 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        info = (ImageView) findViewById(R.id.infoView);
-        brainTeaser = (TextView) findViewById(R.id.brainTeaser);
-        logoView = (ImageView) findViewById(R.id.logoView);
-        playGame = (Button) findViewById(R.id.playGame);
-        openTextView = (TextView) findViewById(R.id.openTextView);
+        info = findViewById(R.id.infoView);
+        brainTeaser = findViewById(R.id.brainTeaser);
+        logoView = findViewById(R.id.logoView);
+        playGame = findViewById(R.id.playGame);
+        openButton = findViewById(R.id.openButton);
+
+        openButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openerLogo(v);
+            }
+        });
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                infoApp(v);
+            }
+        });
+
+        /*
+        **
+        // Not yet to be implemented in this version
 
         Random rand = new Random();
         int quoteOfTheDay = rand.nextInt(20);
@@ -98,11 +110,13 @@ public class MainActivity extends AppCompatActivity{
         quotes.add("Too many of us are not living our dreams because we are living our fears");
         quotes.add("I didn't fail the test. I just found 100 ways to do it wrong");
 
-        quoteView = (TextView) findViewById(R.id.quoteView);
+        quoteView = findViewById(R.id.quoteView);
         quoteView.setText(".....quote of the day..... \n\""+quotes.get(quoteOfTheDay)+"\"");
         quoteView.animate().alpha(0).setDuration(15000);
 
-        quitTextView = (Button) findViewById(R.id.quitTextView);
+        */
+
+        quitTextView = findViewById(R.id.quitTextView);
         quitTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,13 +125,13 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        playGame = (Button) findViewById(R.id.playGame);
+        playGame = findViewById(R.id.playGame);
         playGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameInterfaceIntent = new Intent(MainActivity.this, GameInterface.class);
-                gameInterfaceIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(gameInterfaceIntent);
+                Intent levelActivityIntent = new Intent(MainActivity.this, LevelActivity.class);
+                levelActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(levelActivityIntent);
 
             }
         });

@@ -26,10 +26,12 @@ public class GameInterface extends AppCompatActivity{
     ArrayList<Integer> answers = new ArrayList<>();
     TextView questionView, resultTextView, scoreTextView, timer, scoreView, messageView, timeText;
     int score, flag = 0, health = 3;
-    int numberOfQuestions = 0;
+    int numberOfQuestions = 0, maxVolume = 50;
     MediaPlayer mPlayer, gameOverMusic, clickButton;
 
     ArrayList<String> quotes = new ArrayList<>();
+
+    String getCategory;
 
     public void updateTimer(int seconds){
 
@@ -109,8 +111,8 @@ public class GameInterface extends AppCompatActivity{
 
     }
 
-
-    public void newQuestion() {
+    private void addQuestionCategory()
+    {
         Random rand = new Random();
 
         int a = rand.nextInt(26);
@@ -141,6 +143,172 @@ public class GameInterface extends AppCompatActivity{
         option1.setText(Integer.toString(answers.get(1)));
         option2.setText(Integer.toString(answers.get(2)));
         option3.setText(Integer.toString(answers.get(3)));
+    }
+
+
+    public void newQuestion() {
+        /*Random rand = new Random();
+
+        int a = rand.nextInt(26);
+        int b = rand.nextInt(26);
+
+        questionView.setText(Integer.toString(a) + " + " + Integer.toString(b));
+
+        locationOfCorrectAnswer = rand.nextInt(4);
+
+        answers.clear();
+
+        for (int i=0; i<4; i++) {
+            if (i == locationOfCorrectAnswer) {
+                answers.add(a+b);
+            } else {
+                int wrongAnswer = rand.nextInt(51);
+
+                while (wrongAnswer == a+b) {
+                    wrongAnswer = rand.nextInt(51);
+                }
+
+                answers.add(wrongAnswer);
+            }
+
+        }
+
+        option0.setText(Integer.toString(answers.get(0)));
+        option1.setText(Integer.toString(answers.get(1)));
+        option2.setText(Integer.toString(answers.get(2)));
+        option3.setText(Integer.toString(answers.get(3)));*/
+
+        switch (getCategory)
+        {
+            case "ADD":
+                addQuestionCategory();
+                break;
+
+            case "SUBTRACT":
+                subtractQuestionCategory();
+                break;
+
+            case "PRODUCT":
+                productQuestionCategory();
+                break;
+
+            case "DIVIDE":
+                divideQuestionCategory();
+                break;
+        }
+    }
+
+    private void divideQuestionCategory() {
+
+        Random rand = new Random();
+
+        int a = rand.nextInt(26);
+        int b = rand.nextInt(26);
+
+        while (b == 0)
+        {
+            b = rand.nextInt(26);
+        }
+
+        questionView.setText(Integer.toString(a) + " / " + Integer.toString(b));
+
+        locationOfCorrectAnswer = rand.nextInt(4);
+
+        answers.clear();
+
+        for (int i=0; i<4; i++) {
+            if (i == locationOfCorrectAnswer) {
+                answers.add(a/b);
+            } else {
+                int wrongAnswer = rand.nextInt(51);
+
+                while (wrongAnswer == a/b) {
+                    wrongAnswer = rand.nextInt(51);
+                }
+
+                answers.add(wrongAnswer);
+            }
+
+        }
+
+        option0.setText(Integer.toString(answers.get(0)));
+        option1.setText(Integer.toString(answers.get(1)));
+        option2.setText(Integer.toString(answers.get(2)));
+        option3.setText(Integer.toString(answers.get(3)));
+
+    }
+
+    private void productQuestionCategory() {
+
+        Random rand = new Random();
+
+        int a = rand.nextInt(13);
+        int b = rand.nextInt(13);
+
+        questionView.setText(Integer.toString(a) + " × " + Integer.toString(b));
+
+        locationOfCorrectAnswer = rand.nextInt(4);
+
+        answers.clear();
+
+        for (int i=0; i<4; i++) {
+            if (i == locationOfCorrectAnswer) {
+                answers.add(a*b);
+            } else {
+                int wrongAnswer = rand.nextInt(145);
+
+                while (wrongAnswer == a+b) {
+                    wrongAnswer = rand.nextInt(145);
+                }
+
+                answers.add(wrongAnswer);
+            }
+
+        }
+
+        option0.setText(Integer.toString(answers.get(0)));
+        option1.setText(Integer.toString(answers.get(1)));
+        option2.setText(Integer.toString(answers.get(2)));
+        option3.setText(Integer.toString(answers.get(3)));
+
+    }
+
+    private void subtractQuestionCategory() {
+
+        Random rand = new Random();
+
+        int a = rand.nextInt(26);
+        int b = rand.nextInt(26);
+
+        int max = 50;
+        int min = -50;
+
+        questionView.setText(Integer.toString(a) + " - " + Integer.toString(b));
+
+        locationOfCorrectAnswer = rand.nextInt(4);
+
+        answers.clear();
+
+        for (int i=0; i<4; i++) {
+            if (i == locationOfCorrectAnswer) {
+                answers.add(a-b);
+            } else {
+                int wrongAnswer = (int)Math.floor(Math.random()*(max - min + 1) + min);
+
+                while (wrongAnswer == a - b) {
+                    wrongAnswer = (int)Math.floor(Math.random()*(max - min + 1) + min);
+                }
+
+                answers.add(wrongAnswer);
+            }
+
+        }
+
+        option0.setText(Integer.toString(answers.get(0)));
+        option1.setText(Integer.toString(answers.get(1)));
+        option2.setText(Integer.toString(answers.get(2)));
+        option3.setText(Integer.toString(answers.get(3)));
+
     }
 
     public void chooseAnswer(View view) {
@@ -175,10 +343,10 @@ public class GameInterface extends AppCompatActivity{
         dgHome.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent homeIntent = new Intent(GameInterface.this, GameInterface.class);
+                Intent homeIntent = new Intent(GameInterface.this, LevelActivity.class);
                 homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(homeIntent);
                 mPlayer.stop();
+                startActivity(homeIntent);
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -246,6 +414,19 @@ public class GameInterface extends AppCompatActivity{
         health3 = findViewById(R.id.health3);
         restartIcon = findViewById(R.id.restartIcon);
 
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                getCategory = null;
+            } else {
+                getCategory = extras.getString("Category");
+            }
+        } else {
+            getCategory = (String) savedInstanceState.getSerializable("Category");
+        }
+
+        Toast.makeText(this, getCategory, Toast.LENGTH_LONG).show();
+
         restartIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -308,6 +489,11 @@ public class GameInterface extends AppCompatActivity{
         newQuestion();
 
         mPlayer = MediaPlayer.create(this, R.raw.background);
+
+        int currVolume = 20;
+        float log1=(float)(Math.log(maxVolume-currVolume)/Math.log(maxVolume));
+        mPlayer.setVolume(log1,log1);
+
         mPlayer.start();
 
         gameOverMusic = MediaPlayer.create(this, R.raw.gameover);
@@ -358,7 +544,7 @@ public class GameInterface extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        mPlayer.pause();
+        mPlayer.stop();
         new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Quit Brain Teaser").setMessage("Do you want to quit the game?\nAll saved data will be lost!!")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -375,5 +561,35 @@ public class GameInterface extends AppCompatActivity{
                     }
                 })
                 .show();
+    }
+
+    @Override
+    public void onPause(){
+        mPlayer.pause();
+        super.onPause();
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        mPlayer.start();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        mPlayer.start();
+    }
+
+    @Override
+    public void onDestroy(){
+        mPlayer.stop();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        mPlayer.start();
     }
 }

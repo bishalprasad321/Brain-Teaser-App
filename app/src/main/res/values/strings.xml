@@ -26,7 +26,7 @@
     <string name="quote_20">I didn\'t fail the test. I just found 100 ways to do it wrong</string>
     <string name="exit_button">E X I T</string>
     <string name="play_button">P L A Y</string>
-    <string name="click_to_play">....Click To Play....</string>
+    <string name="click_to_play">....Click Me....</string>
     <string name="brain_teaser">BRAIN TEASER</string>
     <string name="text_view">TextView</string>
     <string name="question_number">0 of 0</string>
@@ -39,4 +39,10 @@
     <string name="score_review1">You need to see your maths teacher</string>
     <string name="score_review3">Woah!, you are becoming Genius</string>
     <string name="score_review4">Need Improvement, try to reach above 30</string>
+    <string name="info_icon">info icon</string>
+    <string name="select_category">Select Category</string>
+    <string name="add">A D D</string>
+    <string name="subtract">s u b t r a c t</string>
+    <string name="product">p r o d u c t</string>
+    <string name="divide">d i v i s i o n</string>
 </resources>
