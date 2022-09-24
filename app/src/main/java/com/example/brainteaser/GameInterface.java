@@ -147,36 +147,6 @@ public class GameInterface extends AppCompatActivity{
 
 
     public void newQuestion() {
-        /*Random rand = new Random();
-
-        int a = rand.nextInt(26);
-        int b = rand.nextInt(26);
-
-        questionView.setText(Integer.toString(a) + " + " + Integer.toString(b));
-
-        locationOfCorrectAnswer = rand.nextInt(4);
-
-        answers.clear();
-
-        for (int i=0; i<4; i++) {
-            if (i == locationOfCorrectAnswer) {
-                answers.add(a+b);
-            } else {
-                int wrongAnswer = rand.nextInt(51);
-
-                while (wrongAnswer == a+b) {
-                    wrongAnswer = rand.nextInt(51);
-                }
-
-                answers.add(wrongAnswer);
-            }
-
-        }
-
-        option0.setText(Integer.toString(answers.get(0)));
-        option1.setText(Integer.toString(answers.get(1)));
-        option2.setText(Integer.toString(answers.get(2)));
-        option3.setText(Integer.toString(answers.get(3)));*/
 
         switch (getCategory)
         {
@@ -313,7 +283,7 @@ public class GameInterface extends AppCompatActivity{
 
     public void chooseAnswer(View view) {
 
-        clickButton = MediaPlayer.create(this, R.raw.click);
+        clickButton = MediaPlayer.create(this, R.raw.button_click);
 
         if (flag == 0) {
             clickButton.start();
@@ -459,7 +429,7 @@ public class GameInterface extends AppCompatActivity{
         quotes.add(getString(R.string.quote_20));
 
         String quote = quotes.get(quoteOfTheDay);
-        brainIcon = (ImageView) findViewById(R.id.brainBulb);
+        brainIcon = findViewById(R.id.brainBulb);
         brainIcon.setOnClickListener(v -> {
             AlertDialog.Builder todayQuote = new AlertDialog.Builder(GameInterface.this);
             todayQuote.setIcon(android.R.drawable.star_on);
@@ -490,7 +460,7 @@ public class GameInterface extends AppCompatActivity{
 
         mPlayer = MediaPlayer.create(this, R.raw.background);
 
-        int currVolume = 20;
+        int currVolume = 10;
         float log1=(float)(Math.log(maxVolume-currVolume)/Math.log(maxVolume));
         mPlayer.setVolume(log1,log1);
 

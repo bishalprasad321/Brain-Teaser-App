@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity{
     Button playGame;
     LottieAnimationView logoView;
     Button quitTextView, openButton;
-    MediaPlayer music;
+    MediaPlayer music, buttonClick;
     int flag = 0;
 
 
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity{
         logoView = findViewById(R.id.logoView);
         playGame = findViewById(R.id.playGame);
         openButton = findViewById(R.id.openButton);
+
+        buttonClick = MediaPlayer.create(this, R.raw.button_click);
 
         openButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +122,7 @@ public class MainActivity extends AppCompatActivity{
         quitTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonClick.start();
                 finish();
                 System.exit(0);
             }
@@ -128,6 +132,9 @@ public class MainActivity extends AppCompatActivity{
         playGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                buttonClick.start();
+
                 Intent levelActivityIntent = new Intent(MainActivity.this, LevelActivity.class);
                 levelActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(levelActivityIntent);
