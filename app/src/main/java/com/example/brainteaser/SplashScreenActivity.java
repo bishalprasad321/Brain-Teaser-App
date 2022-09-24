@@ -14,7 +14,7 @@ import java.io.Writer;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    TextView appName;
+    TextView appName, developerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         appName = findViewById(R.id.appName);
 
+        developerName = findViewById(R.id.developerText);
+
         appName.animate().alpha(1f).setDuration(5000);
+
+        developerName.animate().alpha(1f).setDuration(6000);
 
         Thread thread = new Thread(){
             public void run(){
@@ -44,6 +48,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             }
         };
+
         thread.start();
     }
 }

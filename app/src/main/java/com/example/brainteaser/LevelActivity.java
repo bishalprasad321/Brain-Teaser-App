@@ -1,6 +1,5 @@
 package com.example.brainteaser;
 
-import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
