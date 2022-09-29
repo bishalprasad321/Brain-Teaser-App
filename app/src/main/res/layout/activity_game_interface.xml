@@ -120,6 +120,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonEndGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.81"/>
+
     <ImageView
         android:id="@+id/restartIcon"
         android:layout_width="0dp"
@@ -444,20 +451,19 @@
 
     <Button
         android:id="@+id/playAgain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="64dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="64dp"
         android:background="@drawable/round_play_again"
         android:fontFamily="@font/baloo"
         android:onClick="playAgain"
         android:text="Play Again"
         android:textSize="28sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
+        app:layout_constraintLeft_toRightOf="@id/restartIconGuide"
+        app:layout_constraintRight_toLeftOf="@id/timeIconGuide"
+        app:layout_constraintTop_toBottomOf="@+id/resultTextView"
+        app:layout_constraintBottom_toTopOf="@id/buttonEndGuide"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
